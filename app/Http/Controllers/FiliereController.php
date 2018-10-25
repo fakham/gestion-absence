@@ -27,7 +27,31 @@ class FiliereController extends Controller
 
     }
 
+    public function edit(Filiere $filiere) {
+
+        return view('filiere.edit', compact('filiere'));
+
+    }
+
     public function delete(Filiere $filiere) {
         $filiere->delete();
+
+        return back();
+    }
+
+    public function edited(Request $request, Filiere $filiere) {
+
+        $filiere->nom = $request->nom;
+        $filiere->description = $request->description;
+        $filiere->departement = $request->departement;
+
+        $filiere->save();
+
+        $user = Auth()->user();
+
+        $filieres = Filiere::where('user_id', $user->id)->get();
+
+        return view('filiere.index', compact('filieres'));
+
     }
 }

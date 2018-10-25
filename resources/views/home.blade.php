@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <div class="form-group row">
+                        <div class='col-md-6'>
+                            <a href="/filieres" class='btn btn-primary form-group'>Filieres</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

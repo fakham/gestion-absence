@@ -37,10 +37,16 @@
                                     <td>{{$filiere->description}}</td>
                                     <td>{{$filiere->departement}}</td>
                                     <td>
-                                        <button type="submit" class='btn btn-primary form-group'>Modifier</button>
+                                        <form method="GET" action="/filieres/{{$filiere->id}}">
+                                            @csrf
+                                            <button type="submit" class='btn btn-primary form-group'>Modifier</button>
+                                        </form>
                                     </td>
                                     <td>
-                                        <button type="submit" class='btn btn-danger form-group'>Supprimer</button>
+                                        <form method="POST" action="/filieres/{{$filiere->id}}/delete">
+                                            @csrf
+                                            <button type="submit" class='btn btn-danger form-group' onclick="return confirm('Voulez-vous supprimer la filiere?');">Supprimer</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
